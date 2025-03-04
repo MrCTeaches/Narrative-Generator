@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narrative Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f4f8;
+            margin: 0;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 32px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .output {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Narrative Generator</h1>
+    <button class="button" onclick="generateStory()">Generate Random Narrative</button>
+
+    <div id="storyOutput" class="output"></div>
+
+    <script>
+        function generateStory() {
+            const settings = ["A bustling city", "A haunted forest", "A cozy cottage", "A futuristic world", "A desert island"];
+            const characters = ["A brave knight", "A curious scientist", "A daring adventurer", "A wise wizard", "A mysterious stranger"];
+            const risingActions = ["discovers a hidden secret", "embarks on a dangerous journey", "uncovers a betrayal", "meets an unlikely ally", "faces a great challenge"];
+            const climaxes = ["confronts the villain", "solves the mystery", "defeats a monster", "makes a life-changing decision", "uncovers the truth"];
+            const fallingActions = ["returns home victorious", "loses everything", "finds peace", "rescues a loved one", "is forever changed"];
+            const resolutions = ["finds happiness", "learns an important lesson", "starts a new life", "faces a tough decision", "overcomes a personal struggle"];
+
+            const randomSetting = settings[Math.floor(Math.random() * settings.length)];
+            const randomCharacter = characters[Math.floor(Math.random() * characters.length)];
+            const randomRisingAction = risingActions[Math.floor(Math.random() * risingActions.length)];
+            const randomClimax = climaxes[Math.floor(Math.random() * climaxes.length)];
+            const randomFallingAction = fallingActions[Math.floor(Math.random() * fallingActions.length)];
+            const randomResolution = resolutions[Math.floor(Math.random() * resolutions.length)];
+
+            const story = `
+                <p><strong>Setting:</strong> ${randomSetting}</p>
+                <p><strong>Character:</strong> ${randomCharacter}</p>
+                <p><strong>Rising Action:</strong> ${randomRisingAction}</p>
+                <p><strong>Climax:</strong> ${randomClimax}</p>
+                <p><strong>Falling Action:</strong> ${randomFallingAction}</p>
+                <p><strong>Resolution:</strong> ${randomResolution}</p>
+            `;
+
+            document.getElementById("storyOutput").innerHTML = story;
+        }
+    </script>
+</body>
+</html>
